@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<title>Ancient City Labs</title>
+<meta name="description" content="A one-person software studio in St. Augustine, Florida, making small iPhone apps that keep your data on your phone.">
+<style>
+/* The app's own tokens, so the studio, the site and the product look like one
+   thing. The lime is a fill that carries dark ink — never text on a light
+   ground, where it runs at 1.21:1. Same rule as app/lib/ui/theme.dart. */
+:root {
+  --bg: #F5F6F2;
+  --sf: #FFFFFF;
+  --s2: #EBEEE5;
+  --bd: #E1E4DB;
+  --tp: #14170F;
+  --ts: #5C6355;
+  --tt: #6C7365;
+  --pr: #B8FF3C;
+  --ink: #14170F;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0E1108; --sf: #171B12; --s2: #20261A; --bd: #2E3626;
+    --tp: #F2F4EE; --ts: #A8B09C; --tt: #767E6B;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tp);
+  font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+        'Helvetica Neue', system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+
+h1, h2, h3, .brand {
+  font-family: Archivo, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+h1 { font-size: 2.25rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
+h3 { font-size: 1.05rem; margin: 0 0 .35rem; }
+p { margin: 0 0 .75rem; }
+p:last-child { margin-bottom: 0; }
+.lede { font-size: 1.15rem; color: var(--ts); }
+.muted { color: var(--tt); font-size: .9rem; }
+
+header.site {
+  display: flex; align-items: baseline; gap: .75rem;
+  padding: 1.25rem 0 2.5rem; flex-wrap: wrap;
+}
+.brand { font-size: 1.1rem; text-decoration: none; color: var(--tp); }
+nav { margin-left: auto; }
+nav a {
+  color: var(--ts); text-decoration: none; font-size: .95rem; margin-left: 1rem;
+}
+nav a:hover, a:hover { text-decoration: underline; }
+a { color: var(--tp); }
+a:focus-visible, .brand:focus-visible {
+  outline: 2px solid var(--tp); outline-offset: 3px; border-radius: 3px;
+}
+
+/* Sections space themselves, so no margin fights between neighbours. */
+.stack { display: flex; flex-direction: column; gap: 3rem; }
+.hero { display: flex; flex-direction: column; gap: .75rem; align-items: flex-start; }
+.group { display: flex; flex-direction: column; gap: 1rem; }
+
+/* The one place the lime appears: a fill carrying dark ink. */
+.pill {
+  display: inline-block; background: var(--pr); color: var(--ink);
+  font-weight: 600; font-size: .8rem; letter-spacing: .04em;
+  padding: .35rem .75rem; border-radius: 999px; text-transform: uppercase;
+}
+/* A status that is not the brand statement gets no fill, only a quiet outline. */
+.status {
+  display: inline-block; border: 1px solid var(--bd); color: var(--ts);
+  font-size: .78rem; letter-spacing: .04em; text-transform: uppercase;
+  padding: .3rem .65rem; border-radius: 999px; white-space: nowrap;
+}
+
+/* The app entry is the one thing on the page that is a real object. */
+.app {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  background: var(--sf); border: 1px solid var(--bd);
+  border-radius: 12px; padding: 1.25rem 1.5rem;
+}
+.app .body { flex: 1; min-width: 0; }
+.app .head {
+  display: flex; gap: .75rem; align-items: baseline;
+  flex-wrap: wrap; margin-bottom: .35rem;
+}
+.app h3 { margin: 0; }
+
+/* Principles are prose, not cards — a rule is enough separation. */
+.principles { display: flex; flex-direction: column; gap: 1.5rem; }
+.principle { padding-left: 1rem; border-left: 2px solid var(--bd); }
+.principle h3 { color: var(--tp); }
+.principle p { color: var(--ts); }
+
+.eyebrow {
+  font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tt); margin: 0 0 1rem;
+}
+
+footer.site {
+  margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--bd);
+  color: var(--tt); font-size: .9rem;
+  display: flex; gap: .5rem 1.5rem; flex-wrap: wrap;
+}
+footer.site a { color: var(--tt); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="brand" href="index.html">Ancient City Labs</a>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="stack">
+
+  <section class="hero">
+    <span class="pill">St. Augustine, Florida</span>
+    <h1>Small iPhone apps that mind their own business.</h1>
+    <p class="lede">One app at a time, finished before the next one starts.
+    Nothing built here sends your data anywhere — there is no server for it to
+    go to.</p>
+  </section>
+
+  <section id="apps" class="group">
+    <p class="eyebrow">Apps</p>
+    <div class="app">
+      <div class="body">
+        <div class="head">
+          <h3>Pickleball Log</h3>
+          <span class="status">In development</span>
+        </div>
+        <p>Notices when you arrive at your courts and when you leave, and turns
+        a season of playing into something you can look back on — sessions,
+        hours, courts, what it cost, and who you played with.</p>
+        <p class="muted">Privacy, support and terms live on its own
+        <a href="/pickleballlog/">product page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <p class="eyebrow">How things get built here</p>
+    <div class="principles">
+
+      <div class="principle">
+        <h3>Your data never leaves the device</h3>
+        <p>There is no account to make and no server to sign in to. What an app
+        records stays on your iPhone and is backed up with it. No analytics, no
+        crash reporting, nothing sold to anyone.</p>
+      </div>
+
+      <div class="principle">
+        <h3>The app does the work</h3>
+        <p>Recording something should not depend on remembering to record it.
+        Where a phone can notice on its own, it should — and when it gets one
+        wrong, fixing it by hand should take seconds.</p>
+      </div>
+
+      <div class="principle">
+        <h3>You can always leave</h3>
+        <p>Every app exports everything it holds, in a form you can open
+        somewhere else. The difference between a limit and a hostage is whether
+        you can walk away with your data.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="group">
+    <p class="eyebrow">Contact</p>
+    <h2>Say hello</h2>
+    <p>Questions, bug reports and feature requests all go to the same place, and
+    a person reads them.</p>
+    <p><a href="mailto:hello@ancientcity.app">hello@ancientcity.app</a></p>
+  </section>
+
+</div>
+
+<footer class="site">
+  <span>&copy; 2026 Ancient City Labs</span>
+  <span>St. Augustine, Florida</span>
+</footer>
+
+</div>
+</body>
+</html>
